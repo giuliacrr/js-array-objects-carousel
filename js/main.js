@@ -32,6 +32,7 @@ console.log("Here is the array:")
 console.log(images);
 console.log("Here are the objects in the array:")
 
+//----------------Start Cycle images.length
 for (let i = 0; i < images.length; i++) {
   console.log("#" + i + " " + "Game");
   console.log("Image:");
@@ -58,13 +59,46 @@ for (let i = 0; i < images.length; i++) {
         </div>
 `
   //Thumbnails
-  thumbs.innerHTML += `
-    <div class="thumbnails ${active}">
-      <img class="thumbnails-img" src="${images[i].image}" alt="game-img">
-    </div>
-  `
-}
+  let thumb = document.createElement("div");
+  let thumbImg = document.createElement("img");
+  thumb.classList.add("thumbnails");
+  //Let's add the border to the thumbnail by default when we open the page
+  if (i === 0) {
+    thumb.classList.add("active");
+  }
+  thumbImg.classList.add("thumbnails-img");
+  thumbImg.setAttribute("src", `${images[i].image}`);
+  thumbImg.setAttribute("alt", "game-img");
+  thumbs.append(thumb);
+  thumb.append(thumbImg);
 
+  //Let's do the bonus 1 = click thumbnail to make the image in evidence appear
+  thumb.addEventListener("click", function () {
+    console.log("You selected:" + " " + `${images[i].title}`)
+
+    //Img in Evidence
+    const evidenceImgs = document.querySelectorAll(".evidence-img");
+    //Thumbnails border
+    const thumbImgs = document.querySelectorAll(".thumbnails");
+    //Title and Text
+    const infos = document.querySelectorAll(".game-description");
+
+    //Let's remove the active class from the active image
+    evidenceImgs[imgIndex].classList.remove("active");
+    thumbImgs[imgIndex].classList.remove("active");
+    infos[imgIndex].classList.remove("active");
+    //and let's skin to the next img index
+    imgIndex = i
+    //Let's assign the class active to the next active img-text-thumbnails border
+    evidenceImgs[imgIndex].classList.add("active");
+    thumbImgs[imgIndex].classList.add("active");
+    infos[imgIndex].classList.add("active");
+  })
+}
+//----------------End Cycle images.length
+
+// Let's make the thumbnails clickable. How?
+//----...
 
 //Let's create now the events for the prev and next btns
 const prevBtn = document.getElementById("prev-btn");
@@ -135,3 +169,4 @@ prevBtn.addEventListener("click", function () {
   thumbImgs[imgIndex].classList.add("active");
   infos[imgIndex].classList.add("active");
 })
+
