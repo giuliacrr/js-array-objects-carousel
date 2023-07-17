@@ -69,6 +69,7 @@ for (let i = 0; i < images.length; i++) {
 //Let's create now the events for the prev and next btns
 const prevBtn = document.getElementById("prev-btn");
 const nextBtn = document.getElementById("next-btn");
+
 //Next Button
 nextBtn.addEventListener("click", function () {
   console.log("next");
@@ -102,7 +103,35 @@ nextBtn.addEventListener("click", function () {
   infos[imgIndex].classList.add("active");
 })
 
-//Prev Button
+//Prev Button -- it will repeat most of the things
 prevBtn.addEventListener("click", function () {
   console.log("prev");
+
+  //Img in Evidence
+  const evidenceImgs = document.querySelectorAll(".evidence-img");
+  //Thumbnails border
+  const thumbImgs = document.querySelectorAll(".thumbnails");
+  //Title and Text
+  const infos = document.querySelectorAll(".game-description");
+
+  //Let's remove the active class from the active image
+  evidenceImgs[imgIndex].classList.remove("active");
+  thumbImgs[imgIndex].classList.remove("active");
+  infos[imgIndex].classList.remove("active");
+  //and let's skin to the next img index
+  imgIndex--
+  //Let's put this contition that makes us return to 0 when the index is max
+  if (imgIndex < 0) {
+    imgIndex = evidenceImgs.length - 1;
+  }
+  if (imgIndex < 0) {
+    imgIndex = thumbImgs.length - 1;
+  }
+  if (imgIndex < 0) {
+    imgIndex = infos.length - 1;
+  }
+  //Let's assign the class active to the next active img-text-thumbnails border
+  evidenceImgs[imgIndex].classList.add("active");
+  thumbImgs[imgIndex].classList.add("active");
+  infos[imgIndex].classList.add("active");
 })
