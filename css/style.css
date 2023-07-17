@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.width-ow {
+  max-width: 1200px;
+  min-height: 800px;
+}
+
+.evidence-container {
+  position: relative;
+  background-color: antiquewhite;
+  width: 80%;
+}
+
+.evidence-img {
+  /*background-image: url(../img/05.jpg);*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: opacity .7s;
+}
+
+.game-description {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  width: 100%;
+  min-height: 100px;
+}
+
+.thumbnail-container {
+  background-color: rgb(19, 19, 19);
+  width: 20%;
+  position: relative;
+}
+
+.thumbnails {
+  height: calc(100% / 5);
+  border: 1px solid rgb(192, 137, 137);
+  width: 100%;
+  background-size: cover;
+}
+
+.bg-ow {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.btns {
+  position: absolute;
+}
