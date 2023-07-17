@@ -93,6 +93,8 @@ for (let i = 0; i < images.length; i++) {
     evidenceImgs[imgIndex].classList.add("active");
     thumbImgs[imgIndex].classList.add("active");
     infos[imgIndex].classList.add("active");
+
+
   })
 }
 //----------------End Cycle images.length
@@ -169,4 +171,37 @@ prevBtn.addEventListener("click", function () {
   thumbImgs[imgIndex].classList.add("active");
   infos[imgIndex].classList.add("active");
 })
+
+
+//Let's make the bonus 2: images scroll autoplay
+const autoplay = setInterval(function () {
+  //Img in Evidence
+  const evidenceImgs = document.querySelectorAll(".evidence-img");
+  //Thumbnails border
+  const thumbImgs = document.querySelectorAll(".thumbnails");
+  //Title and Text
+  const infos = document.querySelectorAll(".game-description");
+
+  //Let's remove the active class from the active image
+  evidenceImgs[imgIndex].classList.remove("active");
+  thumbImgs[imgIndex].classList.remove("active");
+  infos[imgIndex].classList.remove("active");
+  //and let's skin to the next img index
+  imgIndex++
+  //Let's put this contition that makes us return to 0 when the index is max
+  if (imgIndex > evidenceImgs.length - 1) {
+    imgIndex = 0;
+  }
+  if (imgIndex > thumbImgs.length - 1) {
+    imgIndex = 0;
+  }
+  if (imgIndex > infos.length - 1) {
+    imgIndex = 0;
+  }
+  //Let's assign the class active to the next active img-text-thumbnails border
+  evidenceImgs[imgIndex].classList.add("active");
+  thumbImgs[imgIndex].classList.add("active");
+  infos[imgIndex].classList.add("active");
+}, 3000)
+
 
