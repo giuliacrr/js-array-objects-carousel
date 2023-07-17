@@ -205,3 +205,44 @@ const autoplay = setInterval(function () {
 }, 3000)
 
 
+//Bonus 3: make the autoplay stop
+
+//Backwards autoplay 
+const backwardsAutoplay = document.getElementById("bkwards")
+
+backwardsAutoplay.addEventListener("click", function () {
+  clearInterval(autoplay);
+  console.log("Rewind time everybody")
+  const bkwAutoplay = setInterval(function () {
+    //Img in Evidence
+    const evidenceImgs = document.querySelectorAll(".evidence-img");
+    //Thumbnails border
+    const thumbImgs = document.querySelectorAll(".thumbnails");
+    //Title and Text
+    const infos = document.querySelectorAll(".game-description");
+
+    //Let's remove the active class from the active image
+    evidenceImgs[imgIndex].classList.remove("active");
+    thumbImgs[imgIndex].classList.remove("active");
+    infos[imgIndex].classList.remove("active");
+    //and let's skin to the next img index
+    imgIndex--
+    //Let's put this contition that makes us return to 0 when the index is max
+    if (imgIndex < 0) {
+      imgIndex = evidenceImgs.length - 1;
+    }
+    if (imgIndex < 0) {
+      imgIndex = evidenceImgs.length - 1;
+    }
+    if (imgIndex < 0) {
+      imgIndex = evidenceImgs.length - 1;
+    }
+    //Let's assign the class active to the next active img-text-thumbnails border
+    evidenceImgs[imgIndex].classList.add("active");
+    thumbImgs[imgIndex].classList.add("active");
+    infos[imgIndex].classList.add("active");
+  }, 3000)
+})
+
+
+

@@ -5,7 +5,11 @@
 }
 
 body {
-  background-image: url(https://images.unsplash.com/photo-1603366615917-1fa6dad5c4fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80);
+  background-image: url(https://wallpapercave.com/wp/wp9267865.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
 }
 
 /*Main container width*/
@@ -99,4 +103,21 @@ body {
 .btns {
   position: absolute;
   z-index: 1;
+}
+
+/*Stop and play buttons*/
+
+
+.stop-play-btn {
+  position: absolute;
+  padding: 2px;
+  background-color: rgba(77, 77, 77, 0.5);
+  bottom: 0;
+  right: 0;
+}
+
+.p-s {
+  background-color: transparent;
+  padding: 5px;
+  border: none;
 }
